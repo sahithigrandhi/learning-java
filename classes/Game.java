@@ -6,7 +6,7 @@ public class Game {
 	int score;
 	int level;
 	String playerName;
-	enum Label {here}
+	
 
 	//CONSTUCTORS
 	public Game(int score, int level, String playerName) {
