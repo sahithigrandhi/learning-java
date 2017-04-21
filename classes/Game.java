@@ -6,7 +6,8 @@ public class Game {
 	int score;
 	int level;
 	String playerName;
-	
+	enum Label {here}
+
 	//CONSTUCTORS
 	public Game(int score, int level, String playerName) {
 		super();
@@ -29,7 +30,7 @@ public class Game {
 	public int getLevel() {
 		return level;
 	}
-	
+
 	//SETTER OR MUTATOR METHODS
 	public void setLevel(int level) {
 		this.level = level;
@@ -41,7 +42,7 @@ public class Game {
 		this.playerName = playerName;
 	}
 	Scanner sc=new Scanner(System.in);
-	
+
 	//START GAME METHOD
 	public void startGame(){
 		System.out.println("  <<<<<MyGame>>>>>");
@@ -60,9 +61,10 @@ public class Game {
 		else
 			System.out.println("*****EXIT*****");
 	}
-	
+
 	//PLAY GAME METHOD
 	private void playGame(){
+
 		score=0;
 		int level=0;
 		int finalScore=0;
@@ -81,11 +83,13 @@ public class Game {
 				score+=10;
 				break;
 			case "X":
+
 				System.out.println("    !!GAME OVER!! ");
 				System.out.println("!!!!!CONGRATULATIONS!!!!!");
 				System.out.println("  LEVEL:"+(level+1)+"    "+"SCORE:"+(finalScore+score));
-				
+
 				return;
+
 			default:
 				System.out.println("Invalid Entry");
 				break;
@@ -96,11 +100,24 @@ public class Game {
 				System.out.println("LEVEL:"+level+"    "+"SCORE:"+finalScore);
 				System.out.println("!!!!!CONGRATULATIONS!!!!!");
 				System.out.println("YOU HAVE REACHED NEXT LEVEL");
+				System.out.println("DO YOU WANT TO GO TO NEXT LEVEL??");
 				score=0;
+				String decision=sc.next();
+
+				if(decision.equals("YES"))
+					continue;
+				else{
+					System.out.println("    !!GAME OVER!! ");
+					System.out.println("!!!!!CONGRATULATIONS!!!!!");
+					System.out.println("  LEVEL:"+(level)+"    "+"SCORE:"+(finalScore+score));
+
+					return;
+				}
+
 			}
 		}
 		while(input!="X");
-		
+
 	}
 }
 
